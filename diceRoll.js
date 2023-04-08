@@ -13,8 +13,8 @@ function cellHTML(element, index, content) {
     console.log(`cellHTML added ${content} to cell ${index}`);
    return element.insertCell(index).innerHTML = content;
 }
-let rollOne; 
-let rollTwo; 
+
+let rollDie; 
 
 thisId('d4').addEventListener('click', () => {
     console.log('button is working');
@@ -25,7 +25,7 @@ thisId('d4').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, 'D-4')
-    cellHTML(row, 2, rollTwo = getRandomInt(4));
+    cellHTML(row, 2, rollDie = getRandomInt(4));
     
     id++
 })
@@ -39,7 +39,7 @@ thisId('d6').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, 'D-6')
-    cellHTML(row, 2, rollTwo = getRandomInt(6));
+    cellHTML(row, 2, rollDie = getRandomInt(6));
     
     id++
 })
@@ -53,7 +53,7 @@ thisId('d8').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, 'D-8')
-    cellHTML(row, 2, rollTwo = getRandomInt(8));
+    cellHTML(row, 2, rollDie = getRandomInt(8));
     
     id++
 })
@@ -67,7 +67,7 @@ thisId('d10').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, 'D-10')
-    cellHTML(row, 2, rollTwo = getRandomInt(10));
+    cellHTML(row, 2, rollDie = getRandomInt(10));
     
     id++
 })
@@ -81,7 +81,7 @@ thisId('d12').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, 'D-12')
-    cellHTML(row, 2, rollTwo = getRandomInt(12));
+    cellHTML(row, 2, rollDie = getRandomInt(12));
     
     id++
 })
@@ -95,7 +95,7 @@ thisId('d20').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, 'D-20')
-    cellHTML(row, 2, rollTwo = getRandomInt(20));
+    cellHTML(row, 2, rollDie = getRandomInt(20));
     
     id++
 })
@@ -109,7 +109,22 @@ thisId('percentile').addEventListener('click', () => {
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, 'Percentile')
-    cellHTML(row, 2, rollTwo = getRandomInt(100));
+    cellHTML(row, 2, rollDie = getRandomInt(100));
     
+    id++
+})
+
+thisId('custom').addEventListener('click', () => {
+    console.log('button is working');
+    let customNum = thisId('custom-num').value
+    let date = new Date()
+    let time = date.toLocaleString();
+    let table = thisId('results')
+    let row = table.insertRow(-1);
+    row.setAttribute('id', `item-${id}`);
+    cellHTML(row, 0, time);
+    cellHTML(row, 1, customNum)
+    cellHTML(row, 2, rollDie = getRandomInt(customNum));
+    thisId('custom-num').value = '';
     id++
 })
