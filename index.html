@@ -12,8 +12,8 @@
   />
 </head>
 <body class="bg bg-dark">
-    <div class="card-secondary">
-        <div class="card-body bg-dark">
+    <div class="container bg-dark">
+        
             <div class="row">
                 <div class="container text-center">
                 <button id="d4" class="btn btn-danger m-2">Roll D-4</button>
@@ -23,14 +23,16 @@
                 <button id="d12" class="btn btn-danger m-2">Roll D-12</button>
                 <button id="d20" class="btn btn-danger m-2">Roll D-20</button>
                 <button id="percentile" class="btn btn-danger m-2">Roll Percentile</button>
-                <div class="row"></div>
+                </div>
+            </div>
+                <div class="row">
                 <div class="form-group text-center">
-                    <label for="custom-num">How Many Sides?</label>
-                    <input id="custom-num" type="number" class="form rounded text-center" placeholder="Customize">
+                    <label for="custom-num" class="text-light form-group">How Many Sides?</label>
+                    <input id="custom-num" type="number" class="form-group rounded text-center" placeholder="Customize">
                     <button id="custom" class="btn btn-info m-2">Roll Customized</button>
                 </div>
                 </div>
-            </div>
+            
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -40,7 +42,7 @@
             <table id="results" class="table table-info table-striped">
                 <tr>   
                     <th>Time</th>
-                    <th>Which die?</th>
+                    <th># of Sides</th>
                     <th>Result</th>
                     </tr>
             </table>

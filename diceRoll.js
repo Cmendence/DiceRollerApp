@@ -91,7 +91,7 @@ thisId('d20').addEventListener('click', () => {
     let date = new Date()
     let time = date.toLocaleString();
     let table = thisId('results')
-    let row = table.insertRow(-1);
+    let row = table.insertRow(1);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, 'D-20')
@@ -108,8 +108,8 @@ thisId('percentile').addEventListener('click', () => {
     let row = table.insertRow(-1);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
-    cellHTML(row, 1, 'Percentile')
-    cellHTML(row, 2, rollDie = getRandomInt(100));
+    cellHTML(row, 1, '100')
+    cellHTML(row, 2, rollDie = getRandomInt(100)+'%');
     
     id++
 })
