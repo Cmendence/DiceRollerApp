@@ -129,3 +129,13 @@ thisId('custom').addEventListener('click', () => {
     id++
 })
 
+// thisId('clear-history').addEventListener('click', () => {
+//     let history = thisId('results')
+//     clearHistory(history)
+// })
+
+// function clearHistory(element) {
+//     while(element.firstChild) {
+//         element.removeChild(element.firstChild);
+//     }
+// }
