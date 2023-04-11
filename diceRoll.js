@@ -21,8 +21,8 @@ thisId('d4').addEventListener('click', () => {
     console.log('button is working');
     let date = new Date()
     let time = date.toLocaleTimeString();
-    let body = document.getElementById('body');
-    let row = body.insertRow(0);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, '4')
@@ -35,8 +35,8 @@ thisId('d6').addEventListener('click', () => {
     console.log('button is working');
     let date = new Date()
     let time = date.toLocaleTimeString();
-    let body = document.getElementById('body');
-    let row = body.insertRow(0);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, '6')
@@ -49,8 +49,8 @@ thisId('d8').addEventListener('click', () => {
     console.log('button is working');
     let date = new Date()
     let time = date.toLocaleTimeString();
-    let body = document.getElementById('body');
-    let row = body.insertRow(0);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, '8')
@@ -63,8 +63,8 @@ thisId('d10').addEventListener('click', () => {
     console.log('button is working');
     let date = new Date()
     let time = date.toLocaleTimeString();
-    let body = document.getElementById('body');
-    let row = body.insertRow(0);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, '10')
@@ -77,8 +77,8 @@ thisId('d12').addEventListener('click', () => {
     console.log('button is working');
     let date = new Date()
     let time = date.toLocaleTimeString();
-    let body = document.getElementById('body');
-    let row = body.insertRow(0);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, '12')
@@ -91,8 +91,8 @@ thisId('d20').addEventListener('click', () => {
     console.log('button is working');
     let date = new Date()
     let time = date.toLocaleTimeString();
-    let body = document.getElementById('body');
-    let row = body.insertRow(0);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, '20')
@@ -105,8 +105,8 @@ thisId('percentile').addEventListener('click', () => {
     console.log('button is working');
     let date = new Date()
     let time = date.toLocaleTimeString();
-    let body = document.getElementById('body');
-    let row = body.insertRow(0);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, '100')
@@ -120,8 +120,8 @@ thisId('custom').addEventListener('click', () => {
     let customNum = thisId('custom-num').value
     let date = new Date()
     let time = date.toLocaleTimeString();
-    let body = document.getElementById('body');
-    let row = body.insertRow(0);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     cellHTML(row, 0, time);
     cellHTML(row, 1, customNum)
@@ -131,9 +131,8 @@ thisId('custom').addEventListener('click', () => {
 })
 
 document.getElementById('clear-history').addEventListener('click', () => {
-    let body = document.getElementById('body');
-    // body.empty()
-    clearHistory(body)
+    let tableBody = document.getElementById('tableBody');
+    clearHistory(tableBody)
     
 })
 
