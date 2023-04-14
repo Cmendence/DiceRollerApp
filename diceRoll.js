@@ -1,14 +1,11 @@
 let id = 0;
-// let table = $('#history');
+let result;
+let isRolling = false; //roll cooldown
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max)) + 1;
   }
 
-  function thisId(id) {
-    console.log(`thisId function is tied to id:${id}`);
-   return document.getElementById(id);
-}
 
 function cellHTML(element, index, content) {
     console.log(`cellHTML added ${content} to cell ${index}`);
@@ -17,117 +14,324 @@ function cellHTML(element, index, content) {
 
 let rollDie; 
 
-thisId('d4').addEventListener('click', () => {
-    console.log('button is working');
+document.getElementById('d4').addEventListener('click', () => {
+
+    if (isRolling) {
+        console.log('Roll already in progress. Please wait...');
+        return; // ignore click event
+    }
+
+    console.log('Button clicked. Starting roll...');
+    isRolling = true;
+
+let date = new Date()
+let time = date.toLocaleTimeString();
+let tableBody = document.getElementById('tableBody');
+let row = tableBody.insertRow(0);
+result = getRandomInt(4);
+row.setAttribute('id', `item-${id}`);
+row.insertCell(0).innerHTML = time
+row.insertCell(1).innerHTML = '4'
+row.insertCell(2).innerHTML = 'Rolling...'
+
+id++
+
+let iteration = 0;
+intervalId = setInterval(() => {
+    document.getElementById('result').innerHTML = getRandomInt(4);
+    iteration++;
+
+    // Stop the interval after a certain number of iterations
+    if (iteration >= 8) {
+        clearInterval(intervalId);
+        result = getRandomInt(4);
+        document.getElementById('result').innerHTML = result;
+        row.cells[2].innerHTML = result; // Update the row with the final result
+        isRolling = false; //reset flag
+    }
+}, 50);
+
+
+});
+
+document.getElementById('d6').addEventListener('click', () => {
+
+    if (isRolling) {
+        console.log('Roll already in progress. Please wait...');
+        return; // ignore click event
+    }
+
+    console.log('Button clicked. Starting roll...');
+    isRolling = true;
+
+let date = new Date()
+let time = date.toLocaleTimeString();
+let tableBody = document.getElementById('tableBody');
+let row = tableBody.insertRow(0);
+result = getRandomInt(6);
+row.setAttribute('id', `item-${id}`);
+row.insertCell(0).innerHTML = time
+row.insertCell(1).innerHTML = '6'
+row.insertCell(2).innerHTML = 'Rolling...'
+
+id++
+
+let iteration = 0;
+intervalId = setInterval(() => {
+    document.getElementById('result').innerHTML = getRandomInt(6);
+    iteration++;
+
+    // Stop the interval after a certain number of iterations
+    if (iteration >= 8) {
+        clearInterval(intervalId);
+        result = getRandomInt(6);
+        document.getElementById('result').innerHTML = result;
+        row.cells[2].innerHTML = result; // Update the row with the final result
+        isRolling = false; //reset flag
+    }
+}, 50);
+
+
+});
+
+document.getElementById('d8').addEventListener('click', () => {
+
+    if (isRolling) {
+        console.log('Roll already in progress. Please wait...');
+        return; // ignore click event
+    }
+
+    console.log('Button clicked. Starting roll...');
+    isRolling = true;
+
+let date = new Date()
+let time = date.toLocaleTimeString();
+let tableBody = document.getElementById('tableBody');
+let row = tableBody.insertRow(0);
+result = getRandomInt(8);
+row.setAttribute('id', `item-${id}`);
+row.insertCell(0).innerHTML = time
+row.insertCell(1).innerHTML = '8'
+row.insertCell(2).innerHTML = 'Rolling...'
+
+id++
+
+let iteration = 0;
+intervalId = setInterval(() => {
+    document.getElementById('result').innerHTML = getRandomInt(8);
+    iteration++;
+
+    // Stop the interval after a certain number of iterations
+    if (iteration >= 10) {
+        clearInterval(intervalId);
+        result = getRandomInt(8);
+        document.getElementById('result').innerHTML = result;
+        row.cells[2].innerHTML = result; // Update the row with the final result
+        isRolling = false; //reset flag
+    }
+}, 60);
+
+
+});
+
+document.getElementById('d10').addEventListener('click', () => {
+
+    if (isRolling) {
+        console.log('Roll already in progress. Please wait...');
+        return; // ignore click event
+    }
+
+    console.log('Button clicked. Starting roll...');
+    isRolling = true;
+
+let date = new Date()
+let time = date.toLocaleTimeString();
+let tableBody = document.getElementById('tableBody');
+let row = tableBody.insertRow(0);
+result = getRandomInt(10);
+row.setAttribute('id', `item-${id}`);
+row.insertCell(0).innerHTML = time
+row.insertCell(1).innerHTML = '10'
+row.insertCell(2).innerHTML = 'Rolling...'
+
+id++
+
+let iteration = 0;
+intervalId = setInterval(() => {
+    document.getElementById('result').innerHTML = getRandomInt(10);
+    iteration++;
+
+    // Stop the interval after a certain number of iterations
+    if (iteration >= 10) {
+        clearInterval(intervalId);
+        result = getRandomInt(10);
+        document.getElementById('result').innerHTML = result;
+        row.cells[2].innerHTML = result; // Update the row with the final result
+        isRolling = false; //reset flag
+    }
+}, 60);
+
+
+});
+
+document.getElementById('d12').addEventListener('click', () => {
+
+    if (isRolling) {
+        console.log('Roll already in progress. Please wait...');
+        return; // ignore click event
+    }
+
+    console.log('Button clicked. Starting roll...');
+    isRolling = true;
+
+let date = new Date()
+let time = date.toLocaleTimeString();
+let tableBody = document.getElementById('tableBody');
+let row = tableBody.insertRow(0);
+result = getRandomInt(12);
+row.setAttribute('id', `item-${id}`);
+row.insertCell(0).innerHTML = time
+row.insertCell(1).innerHTML = '12'
+row.insertCell(2).innerHTML = 'Rolling...'
+
+id++
+
+let iteration = 0;
+intervalId = setInterval(() => {
+    document.getElementById('result').innerHTML = getRandomInt(12);
+    iteration++;
+
+    // Stop the interval after a certain number of iterations
+    if (iteration >= 12) {
+        clearInterval(intervalId);
+        result = getRandomInt(12);
+        document.getElementById('result').innerHTML = result;
+        row.cells[2].innerHTML = result; // Update the row with the final result
+        isRolling = false; //reset flag
+    }
+}, 60);
+
+
+});
+
+document.getElementById('d20').addEventListener('click', () => {
+
+        if (isRolling) {
+            console.log('Roll already in progress. Please wait...');
+            return; // ignore click event
+        }
+    
+        console.log('Button clicked. Starting roll...');
+        isRolling = true;
+
     let date = new Date()
     let time = date.toLocaleTimeString();
     let tableBody = document.getElementById('tableBody');
     let row = tableBody.insertRow(0);
+    result = getRandomInt(20);
     row.setAttribute('id', `item-${id}`);
-    cellHTML(row, 0, time);
-    cellHTML(row, 1, '4')
-    cellHTML(row, 2, rollDie = getRandomInt(4));
+    row.insertCell(0).innerHTML = time
+    row.insertCell(1).innerHTML = '20'
+    row.insertCell(2).innerHTML = 'Rolling...'
     
     id++
-})
 
-thisId('d6').addEventListener('click', () => {
-    console.log('button is working');
+    let iteration = 0;
+    intervalId = setInterval(() => {
+        document.getElementById('result').innerHTML = getRandomInt(20);
+        iteration++;
+
+        // Stop the interval after a certain number of iterations
+        if (iteration >= 15) {
+            clearInterval(intervalId);
+            result = getRandomInt(20);
+            document.getElementById('result').innerHTML = result;
+            row.cells[2].innerHTML = result; // Update the row with the final result
+            isRolling = false; //reset flag
+        }
+    }, 40);
+
+
+});
+
+document.getElementById('percentile').addEventListener('click', () => {
+
+    if (isRolling) {
+        console.log('Roll already in progress. Please wait...');
+        return; // ignore click event
+    }
+
+    console.log('Button clicked. Starting roll...');
+    isRolling = true;
+
+let date = new Date()
+let time = date.toLocaleTimeString();
+let tableBody = document.getElementById('tableBody');
+let row = tableBody.insertRow(0);
+result = getRandomInt(100);
+row.setAttribute('id', `item-${id}`);
+row.insertCell(0).innerHTML = time
+row.insertCell(1).innerHTML = '100'
+row.insertCell(2).innerHTML = 'Rolling...'
+
+id++
+
+let iteration = 0;
+intervalId = setInterval(() => {
+    document.getElementById('result').innerHTML = getRandomInt(100);
+    iteration++;
+
+    // Stop the interval after a certain number of iterations
+    if (iteration >= 20) {
+        clearInterval(intervalId);
+        result = getRandomInt(100);
+        document.getElementById('result').innerHTML = result;
+        row.cells[2].innerHTML = result; // Update the row with the final result
+        isRolling = false; //reset flag
+    }
+}, 40);
+
+
+});
+
+document.getElementById('custom').addEventListener('click', () => {
+
+    if (isRolling) {
+        console.log('Roll already in progress. Please wait...');
+        return; // ignore click event
+    }
+
+    console.log('Button clicked. Starting roll...');
+    isRolling = true;
+
+    let customNum = document.getElementById('custom-num').value
     let date = new Date()
     let time = date.toLocaleTimeString();
     let tableBody = document.getElementById('tableBody');
     let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
-    cellHTML(row, 0, time);
-    cellHTML(row, 1, '6')
-    cellHTML(row, 2, rollDie = getRandomInt(6));
+    row.insertCell(0).innerHTML = time;
+    row.insertCell(1).innerHTML = customNum;
+    row.insertCell(2).innerHTML = 'Rolling...';
+    document.getElementById('custom-num').value = '';
+    id++
+
+    let iteration = 0;
+    intervalId = setInterval(() => {
+        document.getElementById('result').innerHTML = getRandomInt(customNum);
+        iteration++;
     
-    id++
-})
-
-thisId('d8').addEventListener('click', () => {
-    console.log('button is working');
-    let date = new Date()
-    let time = date.toLocaleTimeString();
-    let tableBody = document.getElementById('tableBody');
-    let row = tableBody.insertRow(0);
-    row.setAttribute('id', `item-${id}`);
-    cellHTML(row, 0, time);
-    cellHTML(row, 1, '8')
-    cellHTML(row, 2, rollDie = getRandomInt(8));
+        // Stop the interval after a certain number of iterations
+        if (iteration >= 20) {
+            clearInterval(intervalId);
+            result = getRandomInt(customNum);
+            document.getElementById('result').innerHTML = result;
+            row.cells[2].innerHTML = result; // Update the row with the final result
+            isRolling = false; //reset flag
+        }
+    }, 40);
     
-    id++
-})
 
-thisId('d10').addEventListener('click', () => {
-    console.log('button is working');
-    let date = new Date()
-    let time = date.toLocaleTimeString();
-    let tableBody = document.getElementById('tableBody');
-    let row = tableBody.insertRow(0);
-    row.setAttribute('id', `item-${id}`);
-    cellHTML(row, 0, time);
-    cellHTML(row, 1, '10')
-    cellHTML(row, 2, rollDie = getRandomInt(10));
-    
-    id++
-})
-
-thisId('d12').addEventListener('click', () => {
-    console.log('button is working');
-    let date = new Date()
-    let time = date.toLocaleTimeString();
-    let tableBody = document.getElementById('tableBody');
-    let row = tableBody.insertRow(0);
-    row.setAttribute('id', `item-${id}`);
-    cellHTML(row, 0, time);
-    cellHTML(row, 1, '12')
-    cellHTML(row, 2, rollDie = getRandomInt(12));
-    
-    id++
-})
-
-thisId('d20').addEventListener('click', () => {
-    console.log('button is working');
-    let date = new Date()
-    let time = date.toLocaleTimeString();
-    let tableBody = document.getElementById('tableBody');
-    let row = tableBody.insertRow(0);
-    row.setAttribute('id', `item-${id}`);
-    cellHTML(row, 0, time);
-    cellHTML(row, 1, '20')
-    cellHTML(row, 2, rollDie = getRandomInt(20));
-    
-    id++
-})
-
-thisId('percentile').addEventListener('click', () => {
-    console.log('button is working');
-    let date = new Date()
-    let time = date.toLocaleTimeString();
-    let tableBody = document.getElementById('tableBody');
-    let row = tableBody.insertRow(0);
-    row.setAttribute('id', `item-${id}`);
-    cellHTML(row, 0, time);
-    cellHTML(row, 1, '100')
-    cellHTML(row, 2, rollDie = getRandomInt(100)+'%');
-    
-    id++
-})
-
-thisId('custom').addEventListener('click', () => {
-    console.log('button is working');
-    let customNum = thisId('custom-num').value
-    let date = new Date()
-    let time = date.toLocaleTimeString();
-    let tableBody = document.getElementById('tableBody');
-    let row = tableBody.insertRow(0);
-    row.setAttribute('id', `item-${id}`);
-    cellHTML(row, 0, time);
-    cellHTML(row, 1, customNum)
-    cellHTML(row, 2, rollDie = getRandomInt(customNum));
-    thisId('custom-num').value = '';
-    id++
 })
 
 document.getElementById('clear-history').addEventListener('click', () => {
