@@ -286,7 +286,7 @@ intervalId = setInterval(() => {
         clearInterval(intervalId);
         result = getRandomInt(100);
         document.getElementById('result').innerHTML = result;
-        row.cells[2].innerHTML = result; // Update the row with the final result
+        row.cells[2].innerHTML = `${result}%`; // Update the row with the final result
         isRolling = false; //reset flag
     }
 }, 40);
