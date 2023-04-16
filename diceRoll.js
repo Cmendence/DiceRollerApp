@@ -33,6 +33,7 @@ row.setAttribute('id', `item-${id}`);
 row.insertCell(0).innerHTML = time
 row.insertCell(1).innerHTML = '4'
 row.insertCell(2).innerHTML = 'Rolling...'
+document.getElementById('custom-error').textContent= '';
 
 id++
 
@@ -73,6 +74,7 @@ row.setAttribute('id', `item-${id}`);
 row.insertCell(0).innerHTML = time
 row.insertCell(1).innerHTML = '6'
 row.insertCell(2).innerHTML = 'Rolling...'
+document.getElementById('custom-error').textContent= '';
 
 id++
 
@@ -113,6 +115,7 @@ row.setAttribute('id', `item-${id}`);
 row.insertCell(0).innerHTML = time
 row.insertCell(1).innerHTML = '8'
 row.insertCell(2).innerHTML = 'Rolling...'
+document.getElementById('custom-error').textContent= '';
 
 id++
 
@@ -153,6 +156,7 @@ row.setAttribute('id', `item-${id}`);
 row.insertCell(0).innerHTML = time
 row.insertCell(1).innerHTML = '10'
 row.insertCell(2).innerHTML = 'Rolling...'
+document.getElementById('custom-error').textContent= '';
 
 id++
 
@@ -193,6 +197,7 @@ row.setAttribute('id', `item-${id}`);
 row.insertCell(0).innerHTML = time
 row.insertCell(1).innerHTML = '12'
 row.insertCell(2).innerHTML = 'Rolling...'
+document.getElementById('custom-error').textContent= '';
 
 id++
 
@@ -233,6 +238,7 @@ document.getElementById('d20').addEventListener('click', () => {
     row.insertCell(0).innerHTML = time
     row.insertCell(1).innerHTML = '20'
     row.insertCell(2).innerHTML = 'Rolling...'
+    document.getElementById('custom-error').textContent= '';
     
     id++
 
@@ -273,7 +279,7 @@ row.setAttribute('id', `item-${id}`);
 row.insertCell(0).innerHTML = time
 row.insertCell(1).innerHTML = '100'
 row.insertCell(2).innerHTML = 'Rolling...'
-
+document.getElementById('custom-error').textContent= '';
 id++
 
 let iteration = 0;
@@ -295,7 +301,11 @@ intervalId = setInterval(() => {
 });
 
 document.getElementById('custom').addEventListener('click', () => {
+    
+    let isCustomValid = isFieldValid('custom-num', 'custom-error') ;
+    
 
+    if (isCustomValid){
     if (isRolling) {
         console.log('Roll already in progress. Please wait...');
         return; // ignore click event
@@ -304,6 +314,7 @@ document.getElementById('custom').addEventListener('click', () => {
     console.log('Button clicked. Starting roll...');
     isRolling = true;
 
+   
     let customNum = document.getElementById('custom-num').value
     let date = new Date()
     let time = date.toLocaleTimeString();
@@ -331,9 +342,11 @@ document.getElementById('custom').addEventListener('click', () => {
         }
     }, 40);
     
-
+}
 })
 
+
+//Clear history
 document.getElementById('clear-history').addEventListener('click', () => {
     let tableBody = document.getElementById('tableBody');
     clearHistory(tableBody)
@@ -345,3 +358,19 @@ function clearHistory(element) {
         element.removeChild(element.firstChild);
     }
 }
+
+function isFieldValid(customInput, customError) {
+    let customNum = document.getElementById(customInput).value;
+    let customErr = document.getElementById(customError);
+   
+    if (customNum === '') {
+     document.getElementById(customInput).classList.add('is-invalid');
+        customErr.textContent = 'Please enter a number';
+       return false;
+     } else {
+         document.getElementById(customInput).classList.remove('is-invalid');
+        //  document.getElementById(customNum).classList.add('is-valid');
+       customErr.textContent = '';
+     return true
+     }
+ }
