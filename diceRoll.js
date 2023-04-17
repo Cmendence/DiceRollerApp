@@ -364,12 +364,9 @@ function isFieldValid(customInput, customError) {
     let customErr = document.getElementById(customError);
    
     if (customNum === '') {
-     document.getElementById(customInput).classList.add('is-invalid');
         customErr.textContent = 'Please enter a number';
        return false;
      } else {
-         document.getElementById(customInput).classList.remove('is-invalid');
-        //  document.getElementById(customNum).classList.add('is-valid');
        customErr.textContent = '';
      return true
      }
