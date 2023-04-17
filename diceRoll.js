@@ -291,7 +291,7 @@ intervalId = setInterval(() => {
     if (iteration >= 20) {
         clearInterval(intervalId);
         result = getRandomInt(100);
-        document.getElementById('result').innerHTML = result;
+        document.getElementById('result').innerHTML = result + '%';
         row.cells[2].innerHTML = `${result}%`; // Update the row with the final result
         isRolling = false; //reset flag
     }
@@ -349,6 +349,7 @@ document.getElementById('custom').addEventListener('click', () => {
 //Clear history
 document.getElementById('clear-history').addEventListener('click', () => {
     let tableBody = document.getElementById('tableBody');
+    document.getElementById('result').innerHTML='';
     clearHistory(tableBody)
     
 })
